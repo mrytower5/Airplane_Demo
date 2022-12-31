@@ -1,0 +1,43 @@
+# Full reference: https://docs.airplane.dev/tasks/task-definition
+
+# Used by Airplane to identify your task. Do not change.
+slug: get_comments
+
+# A human-readable name for your task.
+name: get_comments
+
+# A human-readable description for your task.
+description: "getting full list of comments"
+
+# Configuration for a SQL task.
+sql:
+  # The slug of a database resource.
+  resource: tower
+  entrypoint: get_comments.sql
+  queryArgs:
+    keyword: "{{params.search_keyword}}"
+
+  # The transaction mode to use. Valid values: auto, readOnly, readWrite, none.
+  # Default: auto.
+  transactionMode:auto
+
+  # A list of config variables that this task can access.
+  # configs:
+  #   - API_KEY
+  #   - DB_PASSWORD
+
+# Set label constraints to restrict this task to run only on agents with
+# matching labels.
+# constraints:
+#   aws-region: us-west-2
+
+# Set to true to disable direct execution of this task. Default: false.
+# requireRequests: true
+
+# Set to false to disallow requesters from approving their own requests for
+# this task. Default: true.
+# allowSelfApprovals: false
+
+# The maximum number of seconds the task should take before being timed out.
+# Default: 3600.
+# timeout: 1800

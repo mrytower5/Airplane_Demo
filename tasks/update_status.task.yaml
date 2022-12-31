@@ -1,0 +1,23 @@
+slug: update_status
+name: update_status
+
+# A list of inputs to your task.
+parameters:
+  - slug: customer_id
+    name: Customer ID
+    type: integer
+  - slug: status
+    name: Status
+    type: shorttext
+
+sql:
+  resource: tower
+  entrypoint: update_status.sql
+  queryArgs:
+    customer_id: "{{params.customer_id}}"
+    # status: "{{params.status}}"
+    status: "ACCEPT"
+
+  # The transaction mode to use. Valid values: auto, readOnly, readWrite, none.
+  transactionMode: auto
+

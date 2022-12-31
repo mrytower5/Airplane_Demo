@@ -1,0 +1,35 @@
+name: nr_cpu
+slug: nr_cpu
+
+parameters:
+  - name: Account ID
+    slug: account_id
+    type: integer
+    description: The ID of the account
+  # - name: Entity Guid
+  #   slug: entity_guid
+  #   type: shorttext
+  #   description: entity GUID
+  - name: nrql
+    slug: nrql
+    type: shorttext
+
+graphql:
+  resource: newrelic
+  operation: |
+    query get_cpu($id:Int!, $nrql:Nrql!) {
+      actor {
+        account(id: $id) {
+          nrql(query: $nrql) {
+            results
+          }
+        }
+      }
+    }
+
+  variables:
+    # entityGuid: "{{params.entity_guid}}"
+    id: "{{params.account_id}}"
+    nrql: "{{params.nrql}}"
+
+  retryFailures: true

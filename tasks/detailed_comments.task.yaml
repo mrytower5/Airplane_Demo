@@ -1,0 +1,15 @@
+slug: detailed_comments
+name: detailed_comments
+description: "Task to grab view for detailed list of comments"
+parameters:
+  - slug: customer_id
+    name: Customer ID
+    type: integer
+    required: true
+sql:
+  resource: tower
+  entrypoint: detailed_comments.sql
+  queryArgs:
+    customer_id: "{{params.customer_id}}"
+
+  transactionMode: auto

@@ -1,0 +1,22 @@
+slug: update_status_reject
+name: update_status_reject
+
+# A list of inputs to your task.
+parameters:
+  - slug: customer_id
+    name: Customer ID
+    type: integer
+  - slug: status
+    name: Status
+    type: shorttext
+
+sql:
+  resource: tower
+  entrypoint: update_status.sql
+  queryArgs:
+    customer_id: "{{params.customer_id}}"
+    # status: "{{params.status}}"
+    status: "REJECT"
+
+  # The transaction mode to use. Valid values: auto, readOnly, readWrite, none.
+  transactionMode: auto
