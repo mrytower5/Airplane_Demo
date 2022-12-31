@@ -1,10 +1,10 @@
-resources:
-  - slug: tower
-    name: Tower
-    kind: postgres
-    host: db.amjjcaaslidcwneeqqnx.supabase.co
-    port: "5432"
-    ssl: disable
-    username: postgres
-    password: SBjR0BSXxtJ4MLWt
-    database: postgres
+# resources:
+#   - slug: tower
+#     name: Tower
+#     kind: postgres
+#     host: db.amjjcaaslidcwneeqqnx.supabase.co
+#     port: "5432"
+#     ssl: disable
+#     username: postgres
+#     password: SBjR0BSXxtJ4MLWt
+#     database: postgres
